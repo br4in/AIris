@@ -1,0 +1,107 @@
+// This is a test - adding some functionality to the bot.
+
+! version = 2.0
+
+> object cclean python
+	from os import system
+	try:
+		system('rm -rf ~/.Trash/*')
+		output = 'The trash is now empty.'
+		return output
+	except IndexError as e :
+		output = 'The trash is already empty.'
+		return output
+< object
+
+> object sleep python
+	raw_input('Press [Enter] to continue...') 
+< object
+
+> object max_volume python
+	from os import system
+	system("osascript -e 'set volume 7'")
+	output = 'Volume set to maximum.'
+	return output
+< object
+
+> object low_volume python
+	from os import system
+	system("osascript -e 'set volume 3.5'")
+	output = 'Volume set to minimum.'
+	return output
+< object
+
+> object mute_volume python
+	from os import system
+	system("osascript -e 'set volume 0'")
+	output = 'Volume set to mute.'
+	return output
+< object
+
+> object disable_mic python
+	from os import system
+	system("osascript -e 'tell application \"System Events\" to set volume input volume 0'")
+	output = 'Microphone disabled'
+	return output
+< object
+
+> object enable_mic python
+	from os import system
+    system("osascript -e 'tell application \"System Events\" to set volume input volume 100'")
+    output = 'Microphone enabled'
+    return output
+ < object
+
+> object enable_wifi python
+	from os import system
+	system('networksetup -setairportpower en1 on')
+	output = 'The wifi is now enabled'
+	return output
+< object
+
+> object disable_wifi python
+	from os import system
+	system('networksetup -setairportpower en1 off')
+	output = 'The wifi is now enabled'
+	return output
+< object
+
+> object list_wifi python
+	from os import system
+		system('/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport scan')
+		output = 'Here's a list of the wifi networks.'
+		return output
+< object
+
++ (empty|clear|clean|erase) [the] trash
+- Sure. <call>cclean</call> 
+
++ (standby|sleep|get lost)
+- I'm back. <call>sleep</call>
+
++ (set|raise|put) volume to maximum
+- Sure. <call>max_volume</call>
+
++ (set|lower|put) volume to minimum
+- Sure. <call>low_volume</call>
+
++ (mute|silence) [the] [volume]
+- Ok. <call>mute_volume</call>
+
++ (disable|turn off|mute) [the] (mic|microphone|input volume)
+- Sure. <call>disable_mic</call>
+
++ (enable|turn on|activate) [the] (mic|microphone|input volume)
+- Sure. <call>enable_mic</call>
+
++ (enable|turn on|activate) [the] (wifi|wireless|internet|connection)
+- Sure. <call>enable_wifi</call>
+
++ (disable|turn off|deactivate) [the] (wifi|wireless|internet|connection)
+- Sure. <call>disable_wifi</call>
+
++ (show me|list|) the (wifi|wireless) networks
+- No problem. <call>list_wifi</call>
+
+
+
