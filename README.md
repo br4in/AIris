@@ -6,7 +6,18 @@
 
 - It has a command line mode and a speech mode
 
-- For installation see 'requirements.txt'
+- For installation see 'requirements.txt' or read below
+
+# Installation:
+- Rivescript:
+  pip install rivescript
+- SpeechRecognition:
+  Requirements: brew install portaudio , brew link portaudio , pip install pyaudio . then pip install SpeechRecognition
+- Monotonic for python2:
+  pip install monotonic
+- Pocketsphinx:
+  Requirements: brew install swig git . then pip install pocketsphinx
+- (if you get the error 'OSError dlopen(libasound.so)' type the command 'csrutil disable' in recovery mode. this has worked for me.
 
 # Usage:
 - Type 'python main0.7.py' in Terminal
