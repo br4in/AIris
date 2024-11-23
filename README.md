@@ -2,7 +2,7 @@
 # (Basic) Mac Version. (Pocketsphinx) 
 - I wrote this program for testing PocketSphinx and see the differencies with Apple Speech Recognition.
 
-- An Artificial Intelligence Bot written in Python and Rivescript
+- An Virtual Assistant written in Python and Rivescript
 
 - It has a command line mode and a speech mode
 
